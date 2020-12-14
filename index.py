@@ -11,7 +11,7 @@ app.layout = html.Div(
         dcc.Location(id="url"),
         dbc.NavbarSimple(
             children=[
-                dbc.NavLink("Main", href="/main", id="page-1-link"),
+                dbc.NavLink("About", href="/about", id="page-1-link"),
                 dbc.NavLink("Portfolio", href="/portfolio", id="page-2-link"),
                 dbc.NavLink("Random", href="/random", id="page-3-link"),
                 dbc.NavLink("LinkedIn", href="https://www.linkedin.com/in/christopher-c-han/", id="linkedin-link"),

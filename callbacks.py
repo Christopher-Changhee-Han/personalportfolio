@@ -19,7 +19,7 @@ def toggle_active_links(pathname):
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
-    if pathname in ["/", "/main"]:
+    if pathname in ["/", "/about"]:
         return layout_main
     elif pathname == "/portfolio":
         return layout_portfolio

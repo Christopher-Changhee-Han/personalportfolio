@@ -17,9 +17,17 @@ app.layout = html.Div(
             ],
             brand="Christopher Han",
             color="dark",
-            dark=True,
+            dark=True
         ),
         dbc.Container(id="page-content", className="pt-4"),
+        dbc.NavbarSimple(
+            brand= 'This website is built with Python and Dash',
+            brand_style = {'font-size': '15px'},
+            brand_href= 'https://github.com/Christopher-Changhee-Han/personalportfolio',
+            fixed = 'bottom',
+            color="dark",
+            dark=True,
+        )
     ]
 )
 

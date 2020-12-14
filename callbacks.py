@@ -4,8 +4,9 @@ import dash_bootstrap_components as dbc
 
 from dash.dependencies import Input, Output
 from app import app
-from layouts import layout_bio, layout_portfolio, layout_random
+from layouts import layout_bio, layout_portfolio, layout_random, layout_bio_contact, layout_bio_skills, layout_bio_edu, layout_bio_exp
 
+# Main app callback
 @app.callback(
     [Output(f"page-{i}-link", "active") for i in range(1, 4)],
     [Input("url", "pathname")],
@@ -32,3 +33,16 @@ def render_page_content(pathname):
             html.P(f"The pathname {pathname} was not recognised..."),
         ]
     )
+
+# Bio tabs callback
+@app.callback(Output('bio-tabs-content', 'children'),
+              [Input('bio-tabs', 'value')])
+def render_content(tab):
+    if tab == 'tab-edu':
+        return layout_bio_edu
+    elif tab == 'tab-exp':
+        return layout_bio_exp
+    elif tab == 'tab-skill':
+        return layout_bio_skills
+    elif tab == 'tab-con':
+        return layout_bio_contact

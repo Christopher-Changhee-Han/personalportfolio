@@ -3,11 +3,12 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from app import app
 
+# Bio
 layout_bio = html.Div([
     dbc.Row([
         dbc.Col(html.Div([
-                html.Img(src=app.get_asset_url('profile.jpg'), style= {'height':'80%', 'width':'80%'}),
-                html.P("It's a me, Chris")]), width = 3
+                html.Img(src=app.get_asset_url('profile.jpg'), style= {'height':'80%', 'width':'80%'})
+                ]), width = 3
         ),
     
         dbc.Col(
@@ -20,13 +21,50 @@ layout_bio = html.Div([
                 ''')
                 ])
         )
+    ]),
+    dbc.Row([
+        dbc.Col(html.Div([
+            dcc.Tabs(id='bio-tabs', value='tab-edu', children=[
+                dcc.Tab(label='Education', value='tab-edu'),
+                dcc.Tab(label='Experience', value='tab-exp'),
+                dcc.Tab(label='Skills', value= 'tab-skill'),
+                dcc.Tab(label='Contact', value='tab-con')
+            ]),
+            html.Div(id='bio-tabs-content')
+        ]))
     ])
 ])
 
+# Bio: Education
+layout_bio_edu = html.Div([
+    html.P('big brain time')
+])
+
+# Bio: Experience
+layout_bio_exp = html.Div([
+    html.P('haha what experience')
+])
+
+# Bio: Skills
+
+layout_bio_skills = html.Div([
+    html.P('mad skillz')
+])
+
+# Bio: Contact
+
+layout_bio_contact = html.Div([
+    html.P('(512)-788-3841'),
+
+])
+
+
+# Portfolio 
 layout_portfolio = html.Div([
     html.P('Cool projects are very cool')
 ])
 
+# Random
 layout_random = html.Div([
     html.P('randomness')
 ])

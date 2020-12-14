@@ -2,9 +2,9 @@ import dash_core_components as dcc
 import dash_html_components as html 
 import dash_bootstrap_components as dbc
 
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from app import app
-from layouts import layout_bio, layout_portfolio, layout_random, layout_bio_contact, layout_bio_skills, layout_bio_edu, layout_bio_exp
+from layouts import layout_main, layout_portfolio, layout_random, layout_main_intro, layout_main_edu, layout_main_exp, layout_main_skills
 
 # Main app callback
 @app.callback(
@@ -19,8 +19,8 @@ def toggle_active_links(pathname):
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
-    if pathname in ["/", "/bio"]:
-        return layout_bio
+    if pathname in ["/", "/main"]:
+        return layout_main
     elif pathname == "/portfolio":
         return layout_portfolio
     elif pathname == "/random":
@@ -34,15 +34,25 @@ def render_page_content(pathname):
         ]
     )
 
-# Bio tabs callback
+# Main tabs callback
 @app.callback(Output('bio-tabs-content', 'children'),
               [Input('bio-tabs', 'value')])
 def render_content(tab):
-    if tab == 'tab-edu':
-        return layout_bio_edu
+    if tab == 'tab-intro':
+        return layout_main_intro
+    elif tab == 'tab-edu':
+        return layout_main_edu    
     elif tab == 'tab-exp':
-        return layout_bio_exp
+        return layout_main_exp
     elif tab == 'tab-skill':
-        return layout_bio_skills
-    elif tab == 'tab-con':
-        return layout_bio_contact
+        return layout_main_skills
+
+@app.callback(
+    Output("collapse", "is_open"),
+    [Input("collapse-button", "n_clicks")],
+    [State("collapse", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open

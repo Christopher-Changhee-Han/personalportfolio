@@ -152,8 +152,25 @@ layout_main_skills = html.Div([
 
 
 # Portfolio 
+card_1 = dbc.Card(
+    [
+        dbc.CardImg(src="/assets/sponge.jpg", top=True),
+        dbc.CardBody(
+            [
+                html.H4("Sponge", className="card-title"),
+                html.P(
+                    "Sponge is absorb "
+                    "very well",
+                    className="card-text",
+                ),
+                dbc.Button("Link", color="primary"),
+            ]
+        ),
+    ],
+    style={"width": "18rem"},
+)
 layout_portfolio = html.Div([
-    html.P('Cool projects are very cool')
+    card_1
 ])
 
 # Random

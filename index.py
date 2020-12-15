@@ -13,11 +13,10 @@ app.layout = html.Div(
             children=[
                 dbc.NavLink("About", href="/about", id="page-1-link"),
                 dbc.NavLink("Portfolio", href="/portfolio", id="page-2-link"),
-                dbc.NavLink("Random", href="/random", id="page-3-link"),
-                dbc.NavLink("LinkedIn", href="https://www.linkedin.com/in/christopher-c-han/", id="linkedin-link"),
-                dbc.NavLink("GitHub", href="https://github.com/Christopher-Changhee-Han", id="github-link")
+                dbc.NavLink("Random", href="/random", id="page-3-link")
             ],
             brand="Christopher Han",
+            brand_href = '/about',
             color="dark",
             dark=True
         ),
